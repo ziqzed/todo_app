@@ -1,0 +1,35 @@
+{% extends "todos/index.html" %}
+
+{% block content %}
+
+{% if todo_list %}
+<form action="{% url 'todos:update' todo_edit.id %}" method="POST">
+	{% csrf_token %}
+	<table class="table table-sm">
+		<tr>
+			<th>Task</th>
+			<th></th>
+			<th></th>
+		</tr>
+		{% for task in todo_list %}
+		<tr>
+			{% if task.id == todo_edit.id %}
+			<td><input type="text" class="form-control" name="newtask" value="{{ task.task_description }}" autofocus></td>
+			<td>
+				<button class="btn btn-primary" tabindex="-1" type="submit">Confirm</button>
+				<button class="btn btn-danger" tabindex="-1" role="button" type="reset">Cancel</button>
+			</td>
+			{% else %}
+			<td>{{ task.task_description }}</td>
+			<td></td>
+			{% endif %}
+		</tr>
+		{% endfor %}
+	</table>
+	{% else %}
+	<p>Hey you can insert some text up there!</p>
+	{% endif %}
+</form>
+	
+
+{% endblock %}
