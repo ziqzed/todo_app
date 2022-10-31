@@ -53,7 +53,7 @@
 		</tr>
 		{% for task in todo_list %}
 		<tr>
-			<td>{{ task.task_description }}</td>
+			<td>{{ task.description }}</td>
 			<td>
 				<a href="{% url 'todos:update' task.id %}" class="btn btn-primary" tabindex="-1" role="button">Update</a>
 				<a href="{% url 'todos:delete' task.id %}" class="btn btn-danger" tabindex="-1" role="button">Done</a>

@@ -1,10 +1,29 @@
-{% extends 'todos/index.html' %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <title>Login</title>
+</head>
+<body>
 
-{% block login-content %}
+    <form method="POST">
+        <div class="imgcontainer">
+            <img src="{% static 'src/project_logo.png' %}" alt="ziqzed login logo">
+        </div>
 
-<form method="post">{% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Login">
-</form>
+        <div class="container">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="inputcontainer">
+                <input type="submit" value="Login">
+            </div>
 
-{% endblock %}
+            <p>No account yet? <a href=".">Register here</a></p>
+        </div>
+    </form>
+
+</body>
+</html>

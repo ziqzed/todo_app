@@ -14,13 +14,13 @@
 		{% for task in todo_list %}
 		<tr>
 			{% if task.id == todo_edit.id %}
-			<td><input type="text" class="form-control" name="newtask" value="{{ task.task_description }}" autofocus></td>
+			<td><input type="text" class="form-control" name="newtask" value="{{ task.description }}" autofocus></td>
 			<td>
 				<button class="btn btn-primary" tabindex="-1" type="submit">Confirm</button>
 				<button class="btn btn-danger" tabindex="-1" role="button" type="reset">Cancel</button>
 			</td>
 			{% else %}
-			<td>{{ task.task_description }}</td>
+			<td>{{ task.description }}</td>
 			<td></td>
 			{% endif %}
 		</tr>

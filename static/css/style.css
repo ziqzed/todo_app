@@ -1,3 +1,28 @@
 body {
 	margin: 15px;
 }
+
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+.imgcontainer img {
+  width: 250px;
+  height: 150px;
+}
+
+.inputcontainer {
+  text-align: center;
+  width:  100%;
+  display:  inline-block;
+  box-sizing: border-box;
+  margin-bottom: 5%;
+}
+
+.container {
+  margin: auto;
+  width: 10%;
+  box-sizing: border-box;
+}
+
