@@ -17,7 +17,7 @@ class LogoutFormView(LogoutView):
 @login_required(login_url=reverse_lazy('todos:login'))
 def indexView(request):
 	obj = Task.objects.filter(user=request.user)
-	print(request.user)
+
 	return render(request, "todos/index.html", {"todo_list": obj})
 
 @login_required(login_url=reverse_lazy('todos:login'))
@@ -43,13 +43,13 @@ def updateView(request, task_id):
 	if request.method == 'POST':
 		obj = Task.objects.get(id=task_id)
 		new_desc = request.POST['newtask']
-		print(new_desc)
+
 		if len(new_desc) > 0:
-			obj.task_description = new_desc
+			obj.description = new_desc
 			obj.save()
 
 			return HttpResponseRedirect(reverse('todos:index'))
 
-	obj = Task.objects.all()
+	obj = Task.objects.filter(user=request.user)
 	edit_obj = Task.objects.get(id=task_id)
 	return render(request, "todos/todos_update.html", {"todo_list": obj, "todo_edit": edit_obj})
